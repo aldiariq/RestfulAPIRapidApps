@@ -1,7 +1,7 @@
 package com.cyborg.rapidapps.service;
 
-import com.cyborg.rapidapps.repository.LokasiRapidRepository;
 import com.cyborg.rapidapps.entity.LokasiRapid;
+import com.cyborg.rapidapps.repository.LokasiRapidRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +11,7 @@ import static java.util.Objects.isNull;
 
 @Service
 public class LokasiRapidService {
+
     @Autowired
     private LokasiRapidRepository lokasiRapidRepository;
 

@@ -2,13 +2,13 @@ package com.cyborg.rapidapps.controller;
 
 import com.cyborg.rapidapps.entity.KonfirmasiPendaftaran;
 import com.cyborg.rapidapps.entity.ResetPassword;
+import com.cyborg.rapidapps.entity.User;
 import com.cyborg.rapidapps.entity.autentikasi.UbahPassword;
 import com.cyborg.rapidapps.response.Response;
-import com.cyborg.rapidapps.util.JwtUtil;
-import com.cyborg.rapidapps.entity.User;
 import com.cyborg.rapidapps.service.KonfirmasiPendaftaranService;
 import com.cyborg.rapidapps.service.ResetPasswordService;
 import com.cyborg.rapidapps.service.UserService;
+import com.cyborg.rapidapps.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -38,7 +38,8 @@ public class AutentikasiController {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-    private String BASE_URL = "https://rapidapps.herokuapp.com/api/";
+//    private String BASE_URL = "https://rapidapps.herokuapp.com/api/";
+    private String BASE_URL = "http://127.0.0.1/api/";
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -123,6 +124,10 @@ public class AutentikasiController {
                         responseMasuk.setPesan("Berhasil Masuk");
                         responseMasuk.setToken(jwtUtil.generateToken(dataUser.get(i).getEmailuser()));
                         responseMasuk.setUser(dataUser.get(i));
+
+                        return ResponseEntity.ok(
+                                responseMasuk
+                        );
                     } else {
                         responseMasuk.setBerhasil(false);
                         responseMasuk.setPesan("Gagal Masuk");

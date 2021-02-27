@@ -1,8 +1,8 @@
 package com.cyborg.rapidapps.controller;
 
+import com.cyborg.rapidapps.entity.LokasiRapid;
 import com.cyborg.rapidapps.response.Response;
 import com.cyborg.rapidapps.service.LokasiRapidService;
-import com.cyborg.rapidapps.entity.LokasiRapid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
