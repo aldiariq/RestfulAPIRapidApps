@@ -38,8 +38,8 @@ public class AutentikasiController {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-//    private String BASE_URL = "https://rapidapps.herokuapp.com/api/";
-    private String BASE_URL = "http://127.0.0.1/api/";
+    private String BASE_URL = "https://rapidapps.herokuapp.com/api/";
+//    private String BASE_URL = "http://127.0.0.1/api/";
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -221,6 +221,9 @@ public class AutentikasiController {
                     javaMailSender.send(mimeMessage);
                     responseresetPassword.setBerhasil(true);
                     responseresetPassword.setPesan("Behasil Mengirim Permintaan Reset Password");
+                    return ResponseEntity.ok(
+                            responseresetPassword
+                    );
                 } else {
                     responseresetPassword.setBerhasil(false);
                     responseresetPassword.setPesan("Gagal Mengirim Permintaan Reset Password");
